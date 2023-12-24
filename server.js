@@ -1,8 +1,12 @@
+require('dotenv').config();
 const express = require("express");
 const db = require("./db/db");
 const Product = require("./models/productModel");
 
 const app = express();
+// Accessing variables from the env file
+const PORT = process.env.PORT || 3000;
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -74,4 +78,6 @@ app.delete("/products/:product_id", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Express server listening on port 3000..."));
+app.listen(PORT, () =>
+  console.log(`Express server listening on port ${PORT}...`)
+);

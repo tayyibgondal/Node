@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 
 // Get the connection URI
-uri = "mongodb+srv://tayyib:123@cluster0.qmijazu.mongodb.net/NodeApi?retryWrites=true&w=majority";
+uri = process.env.MONGO_URL;
 
 // Connect to database
 mongoose
